@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Prismic from '@prismicio/client';
 import { format } from 'date-fns';
+import ptBrLocale from 'date-fns/locale/pt-BR';
 import { RichText } from 'prismic-dom';
 
 import { FiCalendar, FiUser } from 'react-icons/fi';
@@ -51,7 +52,10 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
               uid: post.uid,
               first_publication_date: format(
                 new Date(post.first_publication_date),
-                'dd-MMM-Y'
+                'dd-MMM-Y',
+                {
+                  locale: ptBrLocale,
+                }
               ),
               data: {
                 title: post.data.title,
@@ -107,38 +111,42 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
   );
 }
 
-export const getStaticProps = async (): Promise<StaticPropsReturn> => {
-  const prismic = getPrismicClient();
+export const getStaticProps: GetStaticProps =
+  async (): Promise<StaticPropsReturn> => {
+    const prismic = getPrismicClient();
 
-  const postsResponse = await prismic.query(
-    [Prismic.predicates.at('document.type', 'posts')],
-    {
-      fetch: ['publication.title, publication.content'],
-      pageSize: 20,
-    }
-  );
+    const postsResponse = await prismic.query(
+      [Prismic.predicates.at('document.type', 'posts')],
+      {
+        fetch: ['publication.title, publication.content'],
+        pageSize: 20,
+      }
+    );
 
-  const posts = postsResponse.results.map(post => {
+    const posts = postsResponse.results.map(post => {
+      return {
+        uid: post.uid,
+        first_publication_date: format(
+          new Date(post.first_publication_date),
+          'dd MMM Y',
+          {
+            locale: ptBrLocale,
+          }
+        ),
+        data: {
+          title: post.data.title,
+          subtitle: post.data.subtitle,
+          author: post.data.author,
+        },
+      };
+    });
+
     return {
-      uid: post.uid,
-      first_publication_date: format(
-        new Date(post.first_publication_date),
-        'dd-MMM-Y'
-      ),
-      data: {
-        title: post.data.title,
-        subtitle: post.data.subtitle,
-        author: post.data.author,
+      props: {
+        postsPagination: {
+          results: posts,
+          next_page: postsResponse.next_page,
+        },
       },
     };
-  });
-
-  return {
-    props: {
-      postsPagination: {
-        results: posts,
-        next_page: postsResponse.next_page,
-      },
-    },
   };
-};
