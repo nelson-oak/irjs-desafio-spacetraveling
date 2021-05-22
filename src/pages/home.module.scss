@@ -24,6 +24,10 @@
     line-height: 3rem;
     color: var(--gray-100);
   }
+
+  & + div {
+    margin-top: 1rem;
+  }
 }
 .buttonContainer {
   width: 100%;

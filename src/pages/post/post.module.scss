@@ -1,1 +1,42 @@
-// TODO
+.postContainer{
+  width: 100%;
+}
+
+.banner{
+  img {
+    width: 100%;
+  }
+}
+
+.postContent {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 0;
+
+  h1 {
+    color: var(--white);
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  h2 {
+    color: var(--white);
+    font-size: 1.75rem;
+    line-height: 4rem;
+  }
+
+  p, ul {
+    color: var(--gray-100);
+    font-size: 1rem;
+    margin: 1.5rem 0;
+    line-height: 1.5rem;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+
+    li {
+      margin: 0.5rem 0;
+    }
+  }
+}

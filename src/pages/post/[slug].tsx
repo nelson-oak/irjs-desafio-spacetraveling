@@ -34,9 +34,91 @@ export default function Post(): JSX.Element {
       <Head>
         <title>Home | spacetraveling</title>
       </Head>
-      <h1>
-        <span>Batata</span>
-      </h1>
+      <div className={styles.postContainer}>
+        <div className={styles.banner}>
+          <img
+            src="https://www.istockphoto.com/resources/images/HomePage/Hero/682374404.jpg"
+            alt=""
+          />
+        </div>
+
+        <article className={styles.postContent}>
+          <h1>Criando um app CRA do zero</h1>
+
+          <div className={commonStyles.info}>
+            <div>
+              <FiCalendar />
+              <span>15 Mar 2021</span>
+            </div>
+            <div>
+              <FiUser />
+              <span>Joseph Oliveira</span>
+            </div>
+            <div>
+              <FiClock />
+              <span>4 min</span>
+            </div>
+          </div>
+
+          <h2>Algum texto em latim</h2>
+
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi
+            praesentium minima, aliquam eum consequatur rerum? Est vero, cumque
+            cum fugiat similique at alias enim non voluptatibus accusamus
+            incidunt vel nesciunt. Lorem ipsum dolor sit, amet consectetur
+            adipisicing elit. Quasi praesentium minima, aliquam eum consequatur
+            rerum? Est vero, cumque cum fugiat similique at alias enim non
+            voluptatibus accusamus incidunt vel nesciunt.
+          </p>
+
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi
+            praesentium minima, aliquam eum consequatur rerum? Est vero, cumque
+            cum fugiat similique at alias enim non voluptatibus accusamus
+            incidunt vel nesciunt. Lorem ipsum dolor sit, amet consectetur
+            adipisicing elit. Quasi praesentium minima, aliquam eum consequatur
+            rerum? Est vero, cumque cum fugiat similique at alias enim non
+            voluptatibus accusamus incidunt vel nesciunt.
+          </p>
+
+          <h2>Algum texto em latim</h2>
+
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi
+            praesentium minima, aliquam eum consequatur rerum? Est vero, cumque
+            cum fugiat similique at alias enim non voluptatibus accusamus
+            incidunt vel nesciunt. Lorem ipsum dolor sit, amet consectetur
+            adipisicing elit. Quasi praesentium minima, aliquam eum consequatur
+            rerum? Est vero, cumque cum fugiat similique at alias enim non
+            voluptatibus accusamus incidunt vel nesciunt. Lorem ipsum dolor sit,
+            amet consectetur adipisicing elit. Quasi praesentium minima, aliquam
+            eum consequatur rerum? Est vero, cumque cum fugiat similique at
+            alias enim non voluptatibus accusamus incidunt vel nesciunt. Lorem
+            ipsum dolor sit, amet consectetur adipisicing elit. Quasi
+            praesentium minima, aliquam eum consequatur rerum? Est vero, cumque
+            cum fugiat similique at alias enim non voluptatibus accusamus
+            incidunt vel nesciunt.
+          </p>
+
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi
+            praesentium minima, aliquam eum consequatur rerum? Est vero, cumque
+            cum fugiat similique at alias enim non voluptatibus accusamus
+            incidunt vel nesciunt. Lorem ipsum dolor sit, amet consectetur
+            adipisicing elit. Quasi praesentium minima, aliquam eum consequatur
+            rerum? Est vero, cumque cum fugiat similique at alias enim non
+            voluptatibus accusamus incidunt vel nesciunt. Lorem ipsum dolor sit,
+            amet consectetur adipisicing elit. Quasi praesentium minima, aliquam
+            eum consequatur rerum? Est vero, cumque cum fugiat similique at
+            alias enim non voluptatibus accusamus incidunt vel nesciunt. Lorem
+            ipsum dolor sit, amet consectetur adipisicing elit. Quasi
+            praesentium minima, aliquam eum consequatur rerum? Est vero, cumque
+            cum fugiat similique at alias enim non voluptatibus accusamus
+            incidunt vel nesciunt.
+          </p>
+        </article>
+      </div>
     </>
   );
 }
