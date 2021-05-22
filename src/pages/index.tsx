@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Prismic from '@prismicio/client';
 import { format } from 'date-fns';
 import ptBrLocale from 'date-fns/locale/pt-BR';
-import { RichText } from 'prismic-dom';
 
 import { FiCalendar, FiUser } from 'react-icons/fi';
 

@@ -4,9 +4,9 @@ import Head from 'next/head';
 import { format } from 'date-fns';
 import ptBrLocale from 'date-fns/locale/pt-BR';
 import { FiCalendar, FiUser, FiClock } from 'react-icons/fi';
+import Prismic from '@prismicio/client';
 
 import { RichText } from 'prismic-dom';
-import { useEffect } from 'react';
 import { getPrismicClient } from '../../services/prismic';
 
 import commonStyles from '../../styles/common.module.scss';
@@ -70,13 +70,13 @@ export default function Post({ post }: PostProps): JSX.Element {
 
           {post.data.content &&
             post.data.content.map(content => (
-              <>
+              <div key={content.heading}>
                 <h2>{content.heading}</h2>
 
                 <div
                   dangerouslySetInnerHTML={{ __html: content.body[0].text }}
                 />
-              </>
+              </div>
             ))}
         </article>
       </div>
@@ -85,8 +85,26 @@ export default function Post({ post }: PostProps): JSX.Element {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const prismic = getPrismicClient();
+
+  const posts = await prismic.query(
+    [Prismic.predicates.at('document.type', 'posts')],
+    {
+      fetch: ['publication.title, publication.content'],
+      pageSize: 20,
+    }
+  );
+
+  const paths = posts.results.map(post => {
+    return {
+      params: {
+        slug: post.uid,
+      },
+    };
+  });
+
   return {
-    paths: [],
+    paths,
     fallback: 'blocking',
   };
 };
