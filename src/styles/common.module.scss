@@ -1,1 +1,26 @@
-// TODO
+
+.info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  div {
+
+    svg {
+      margin-right: 0.5rem;
+      font-size: 1rem;
+      color: #BBBBBB;
+    }
+
+    span {
+      font-size: 1rem;
+      display: inline-block;
+      margin: auto;
+      color: var(--gray-200);
+    }
+
+    & + div {
+      margin-left: 1.75rem;
+    }
+  }
+}

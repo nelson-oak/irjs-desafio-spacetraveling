@@ -1,4 +1,6 @@
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
+import { FiCalendar, FiUser } from 'react-icons/fi';
 
 import { getPrismicClient } from '../services/prismic';
 
@@ -24,8 +26,70 @@ interface HomeProps {
   postsPagination: PostPagination;
 }
 
-export default function Home() {
-  return <h1>Tests</h1>;
+export default function Home(): JSX.Element {
+  return (
+    <>
+      <Head>
+        <title>Home | spacetraveling</title>
+      </Head>
+      <div className={styles.postsContainer}>
+        <div className={styles.postContent}>
+          <h1>Como utilizar Hooks</h1>
+
+          <p>Pensando em sincronização em vez de ciclos de vida</p>
+
+          <div className={commonStyles.info}>
+            <div>
+              <FiCalendar />
+              <span>15 Mar 2021</span>
+            </div>
+            <div>
+              <FiUser />
+              <span>Joseph Oliveira</span>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.postContent}>
+          <h1>Como utilizar Hooks</h1>
+
+          <p>Pensando em sincronização em vez de ciclos de vida</p>
+
+          <div className={commonStyles.info}>
+            <div>
+              <FiCalendar />
+              <span>15 Mar 2021</span>
+            </div>
+            <div>
+              <FiUser />
+              <span>Joseph Oliveira</span>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.postContent}>
+          <h1>Como utilizar Hooks</h1>
+
+          <p>Pensando em sincronização em vez de ciclos de vida</p>
+
+          <div className={commonStyles.info}>
+            <div>
+              <FiCalendar />
+              <span>15 Mar 2021</span>
+            </div>
+            <div>
+              <FiUser />
+              <span>Joseph Oliveira</span>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.buttonContainer}>
+          <button type="button">Carregar mais posts</button>
+        </div>
+      </div>
+    </>
+  );
 }
 
 // export const getStaticProps = async () => {
